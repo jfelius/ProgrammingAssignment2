@@ -13,8 +13,8 @@ makeCacheMatrix <- function(x = matrix()) {
       inverse.x <- NULL
       set <- function(y) {                  
             x <<- y                         
-            inverse.x <<- NULL
-      }
+            inverse.x <<- NULL                   # <-- this resets the cached inverse back to NULL whenever
+      }                                          #     $set() is used to change the contents of 'x'.
       get <- function() x
       setInverse <- function(inverse) inverse.x <<- inverse
       getInverse <- function() inverse.x
